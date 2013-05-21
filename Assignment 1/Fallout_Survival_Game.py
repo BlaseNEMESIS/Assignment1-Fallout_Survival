@@ -7,6 +7,8 @@
 #Program description:  Welcome to the fallout.  Population you...the rest well.....
 #Welcome to the bottom of the food chain.  A storms coming make your choice...
 #Shelter....Storm....Either way you'll probably end up dead.
+#A game where you make choices that will determine your fate.
+#Pick your destiny.
 
 #Version History:
 #Version #0 - Added original code from dragon game
@@ -14,6 +16,8 @@
 #Version #0.2 - Completed first option and almost finished the next two options
 #Version #0.3 - Completed the first two bad ends
 #Version #0.4 - Completed all the cave endings - only need to complete 4 more endings
+#Version #0.5 - Completed all endings
+#Version #1.0 - Completed testing of game
 
 import time
 
@@ -272,6 +276,7 @@ def headUpstairs():
     
 #enter the town method choice
 def runToTown():
+    choice = ''
     print ('You run through the sands hoping to outchase the storm.')
     time.sleep(3)
     print ('You are able to make it to the first building a house that sags to the sides as the wood of the frame seems to be breaking apart.')
@@ -292,12 +297,148 @@ def runToTown():
     time.sleep(5)
     print ('Your body moans as your blood shivers and your bones scream at you, a primal fear wells up inside to flee.')
     time.sleep(5)
-    print ('Explore the house (1)')
-    time.sleep(2)
-    print ('Leave the town now(2)')
-    time.sleep(2)
-    print ('Hurry...')
+    #while the user does not pick 1 or 2 continue to run the options
+    while choice != '1' and choice != '2':
+        print ('Explore the house (1)')
+        time.sleep(2)
+        print ('Leave the town now(2)')
+        time.sleep(2)
+        print ('Hurry...')
+        choice = raw_input()
+    
+    #if you choose to explore the house run the exploreHouse method
+    if choice == '1':
+        exploreHouse()
+    #if you choose to leave town run the leaveTown method
+    elif choice == '2':
+        leaveTown()
 
+#exploreHouse method
+def exploreHouse():
+    choice =''
+    print ('You explore the main floor house finding everything falling apart but not a single speck of dust anywhere.')
+    time.sleep(5)
+    print ('You see two other places to search around the house.')
+    time.sleep(3)
+    print ('There is a rusty door with scrawlings of tentacles with eyes that seems to follow you as you walk.')
+    time.sleep(5)
+    print ('There are also stairs that lead up to broken doors and one door at the very end that seems to glow with an etheral glow')
+    time.sleep(5)
+    
+    #while the user does not pick 1 or 2 continue to run the options
+    while choice != '1' and choice != '2':
+        print ('Enter the basement and open the evil door (1)')
+        time.sleep(2)
+        print ('Head upstairs and open the etheral glowing door(2)')
+        print ('Choose')
+        choice = raw_input()
+    
+    #if you choose to open the door run the evilDoor method
+    if choice == '1':
+        evilDoor()
+    #if you choose to open the evil door run the goodTown method
+    elif choice == '2':
+        goodDoor()
+
+#evilDoor method choice
+def evilDoor():
+    #bad end
+    print('You approach the door.  The tentacles around the door seems to be shifting irraticly.')
+    time.sleep(5)
+    print('As you reach to open the door there is a snapping noise and wet splatter....')
+    time.sleep(5)
+    print('You look down and see a black tentacle piercing through the door into your chest.')
+    time.sleep(5)
+    print('Before you can attempt to make a noise you are slammed into the door with great force.')
+    time.sleep(5)
+    print('Your body is slammed into the door repeatedly until the door shatters.')
+    time.sleep(5)
+    print('The last thing you see is a big red eye staring at you from the abyss.')
+    #run the gameOver method
+    gameOver()
+
+def goodDoor():
+    #bad end
+    print('You climb the stairs as carefully as possible as they barely seem to be holding together.')
+    time.sleep(5)
+    print('The closer you get to the door the more clear headed you feel.')
+    time.sleep(5)
+    print('The glow of the door seems to increase in ferocity as you near the door.')
+    time.sleep(5)
+    print('Opening the door you see a dagger of beautiful design.')
+    time.sleep(4)
+    print('There is something watching you...')
+    time.sleep(3)
+    print('You pick up the blade.')
+    time.sleep(2)
+    print('Whispers appear and fade into your subconscious.')
+    time.sleep(3)
+    print('You casually slice into your neck tendons.')
+    time.sleep(3)
+    print('You hardly feel a thing.')
+    time.sleep(2)
+    #run the gameOver method
+    gameOver()
+
+#leaveTown method choice
+def leaveTown():
+    print('You turn around and open the door.  There is a loud snapping noise behind you...')
+    time.sleep(5)
+    print('You turn back around to stare back in the house and realize that the floor is actually falling into itself.')
+    time.sleep(5)
+    print('You look around to decide where to run and see the cave in the distance and a gravel road leading out of the town.')
+    time.sleep(5)
+    
+    #while the user does not pick 1 or 2 continue to run the options
+    while choice != '1' and choice != '2':
+        print('Run to the cave(1)')
+        time.sleep(2)
+        print('Run on the gravel road.(2)')
+        time.sleep(2)
+        print('Runnn...')
+        choice = raw_input()
+    
+    #if you choose to open the door run the evilDoor method
+    if choice == '1':
+        headBackToCave()
+    #if you choose to open the evil door run the goodTown method
+    elif choice == '2':
+        walkDownStreet()
+        
+# headBackToCave method choice
+def headBackToCave():
+    #bad end
+    print('You sprint towards the cave as the very ground around you crumbles unfortunately...')
+    time.sleep(5)
+    print('The storm removed all of the hard pieces holding the sands shape.')
+    time.sleep(5)
+    print('As you step on the sand leading to the cave you are instantly devoured.')
+    time.sleep(5)
+    print('Your attempts to get out of the sand is futile as the sand floods into your lungs and suffocates you.')
+    time.sleep(5)
+    print('One day you body may be found beneath the sands.')
+    #run Game Over method
+    gameOver()
+    
+# walkDownStreet method choice
+def walkDownStreet():
+    #neutral true end
+    print('You sprint towards the gravel road as the town collaspes upon itself.')
+    time.sleep(5)
+    print('Luckily the gravel does not seem to be collasping compared to how the sand around the gravel seems to sift.')
+    time.sleep(5)
+    print('You have survived the sand storm and whatever was in the town.')
+    time.sleep(4)
+    print('You will look back at this moment when your time comes and feel as if something more could of happened.')
+    time.sleep(5)
+    print('Something more exciting.')
+    time.sleep(2)
+    print('Something more danagerous.')
+    time.sleep(2)
+    print('Something more meaningful.')
+    #run the game over ending
+    gameOver()
+    
 #gameOver method
 def gameOver():
     #created playAgain string
