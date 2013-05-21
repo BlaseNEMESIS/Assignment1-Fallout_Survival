@@ -13,7 +13,7 @@
 #Version #0.1 - Removed extra code
 #Version #0.2 - Completed first option and almost finished the next two options
 #Version #0.3 - Completed the first two bad ends
-
+#Version #0.4 - Completed all the cave endings - only need to complete 4 more endings
 
 import time
 
@@ -67,7 +67,7 @@ def enterCave():
     #ask the user if they want to continue onwards or use their light first
     print ('You choose to enter into the dark imposing cave.')
     time.sleep(2)
-    print ('There is small illumination from the outside that is dissapearing in the storm.')   
+    print ('There is small illumination from the outside that is dissapearing from the storm.')   
     time.sleep(5)
     print ('As the sand is torn from the ground by the storm the cave is devoured by darkness so thick that when you bring your scarred hands upwards it feels as if there is a resistance to your movement.')
     time.sleep(5)
@@ -83,8 +83,7 @@ def enterCave():
         print ('Use your lighter to take stock of the situation.(2)')
         time.sleep(2)
         print ('Decide...')  
-        choice = raw_input
-        
+        choice = raw_input()
     #if you choose to continue into the cave run the continue into the cave method
     if choice == '1':
         continueIntoCave()
@@ -101,7 +100,7 @@ def continueIntoCave():
     time.sleep(5)
     print ('As time passes the darkness seems to tighten around you.  It is subtle but your muscless begin to scream and your bones weep from the pressure.')
     time.sleep(5)
-    print ('You panic but salvation is near there is a light near you that seems to have the shadows shirk away from the in fear.')
+    print ('You panic but salvation is near there is a light near you that seems to have the shadows shirk away from them in fear.')
     time.sleep(5)
     print ('You realize that the darkness seems to be in pain from the light.')
     time.sleep(3)
@@ -115,7 +114,7 @@ def continueIntoCave():
         print ('Pursue the light at the end of the tunnel (2)')
         time.sleep(2)
         print ('The darkness is not patient Decide...')
-        choice = raw_input
+        choice = raw_input()
         
     #if you choose to reach for your lighter run the reachForLighter method
     if choice == '1':
@@ -155,8 +154,122 @@ def intoTheLight():
     gameOver()
     
 #turn on the lighter method choice             
-#def turnOnLighter():
+def turnOnLighter():
+    choice = ''
+    print ('As you reach for your lighter the darkness seems to increase in pressure.')
+    time.sleep(5)
+    print ('Fortunately you reach your lighter and with a click a flame is summoned into being.')
+    time.sleep(5)
+    print ('The darkness seems to melt and warp upon itself as it screams at you.')
+    time.sleep(5)
+    print ('While the darkness seems to flee from the light the light begins to dominate the cavern')
+    time.sleep(5)
+    print ('The cave seems to be much smaller then you though as there only seems to be one small room.')
+    time.sleep(5)
+    print ('Inside the room there is a pulsing object that seems to glow a dark red around the room.')
+    time.sleep(5)
+    print ('You take a closer look... The object seems to be a pulsating heart with green veins pumping around it.')
+    time.sleep(5)
+    print ('The items begs for you to touch it to posses it. Whisper sweet love into your ear.  Promises, threats, lies.. You must have it.')
+    time.sleep(5)
+    
+    #while the user does not pick 1 or 2 continue to run the options
+    while choice != '1' and choice != '2':
+        print ('Pick up the heart.(1)')
+        time.sleep(2)
+        print ('Wrap the heart up in a cloth (2)')
+        time.sleep(2)
+        print ('Grab IT!!!')
+        choice = raw_input()
+    
+    #if you choose to pick up the heart run the pickUpHeart method
+    if choice == '1':
+        pickUpHeart()
+    #if you choose to wrap the heart run the wrapUpHeart method
+    elif choice == '2':
+        wrapUpHeart()
 
+#pickUpHeart method choice
+def pickUpHeart():
+    #bad end
+    print ('You pick up the beating heart and that is the last thing you ever do.')
+    time.sleep(5)
+    print ('The whispers drill into your brain and tear every part of you from its recesses.')
+    time.sleep(5)
+    print ('You are now nothing but abomination of flesh, a mindless slaves to powers you could not fathom.')
+    gameOver()
+    
+#wrapUpHeart choice
+def wrapUpHeart():
+    choice = ''  
+    print ('You wrap the heart in a cloth and the whispers almost dissapear but their urgency increases.')
+    time.sleep(5)
+    print ('A headache causes you to shut your eyes to attempt to block out the desperate pleas.')
+    time.sleep(5)
+    print ('When you open your eyes you are in a house.') 
+    time.sleep(3)
+    print ('There is a haunting meoldy coming from the basement but your body screams at you to head upstairs before it is silenced ruthlessy.')
+    time.sleep(5)
+    
+    #while the user does not pick 1 or 2 continue to run the options
+    while choice != '1' and choice != '2':
+        print ('Head down to the basement (1)')
+        time.sleep(2)
+        print ('Head upstairs (2)') 
+        time.sleep(2)
+        print ('Choose quickly..')
+        choice = raw_input()    
+    
+    #if you choose to head down to the basement run the headToBasement method
+    if choice == '1':
+        headToBasement()
+    #if you choose to head upstairs run the headUpstairs method
+    elif choice == '2':
+        headUpstairs()
+ 
+def headToBasement():
+    #bad true end
+    print('You choose to head downstairs while the whisper whisper pleased sounds to you.')
+    time.sleep(5)
+    print('Downstairs is filled with thick shadows the obscur creatures that are incomprehensible to the mortal mind')
+    time.sleep(5)
+    print('You walk down the steps and kneel at a dais of a an array of tentacles that form a collasping human face.')
+    time.sleep(5)
+    print('You place the heart at the dais and tentacles from the darkness grab the heart.')
+    time.sleep(5)
+    print('For providing the forces of darkness with the heart you are gifted anything you wish.')
+    time.sleep(5)
+    print('But you will forever serve the dark creatures that scurry in the darkness.')
+    time.sleep(5)
+    print('You will forever be a champion of EVIL.')
+    #run the gameOver method
+    gameOver()
+    
+def headUpstairs():
+    #good true end
+    print('You choose to ignore the whisper and head upstairs.')
+    time.sleep(3)
+    print('The whispers increase in frequency begging you to turn around')
+    time.sleep(3)
+    print('You continue to move to the last door in the hallway where there is a beatiful dagger adorned with angels.')
+    time.sleep(5)
+    print('Your ears bleed and organs rupture as the whispers become screams.')
+    time.sleep(4)
+    print('You grab the dagger and throw the heart to the ground in a defiant scream of rage.')
+    time.sleep(5)
+    print('You stab the heart repeatedly even as your body fails you and your consciousness falls apart.')
+    time.sleep(5)
+    print('The screams cease as heart leaks black blood.  As your body fails the house collaspes around you.')
+    time.sleep(5)
+    print('You die with a smile on your lips.')
+    time.sleep(3)
+    print('You are rewarded for your valor and determination and ascend to one of the highest honors.')
+    time.sleep(3)
+    print('A champion of justice...')
+    time.sleep(3)
+    print('But remember evil is always out there champion of GOOD')
+    gameOver()
+    
 #enter the town method choice
 def runToTown():
     print ('You run through the sands hoping to outchase the storm.')
@@ -193,7 +306,6 @@ def gameOver():
     print ('Your mortal journey has ended...')
     time.sleep(5)
     print ('But... There are multiple possibilities in this corrupted world will you replace another and choose differently.')
-    time.sleep(5)
     print
     time.sleep(5)
 
