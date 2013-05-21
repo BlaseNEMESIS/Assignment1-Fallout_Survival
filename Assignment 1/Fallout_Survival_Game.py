@@ -2,15 +2,17 @@
 #File: Fallout Survival Game
 #Author: Jonathan Hodder
 #Last modified by: Jonathan Hodder
-#Date Last Modified: Wednesday May 15th 2013
+#Date Last Modified: Tuesday May 20th 2013
 
 #Program description:  Welcome to the fallout.  Population you...the rest well.....
 #Welcome to the bottom of the food chain.  A storms coming make your choice...
 #Shelter....Storm....Either way you'll probably end up dead.
 
 #Version History:
-#Version #1 - Added original code from dragon game
-#Version #1.1 - Removed extra code
+#Version #0 - Added original code from dragon game
+#Version #0.1 - Removed extra code
+#Version #0.2 - Completed first option and almost finished the next two options
+#Version #0.3 - Completed the first two bad ends
 
 
 import time
@@ -46,13 +48,13 @@ def CaveOrTown():
     print ('Make your choice!!!!!!')
     choice = raw_input()
     
-    #if you enter the cave this happens run the enterCave method
+    #if you choose to enter the cave run the enterCave method
     if choice == '1':
         enterCave()
-    
-    else if choice == '2':
+    #if you choose to head to the town run the enterTown method
+    elif choice == '2':
+        enterTown()
         
-        enter Town()
     #if the user pick a different option the storm kills the player
     else:
         print ('Your indecisiveness has cost you greatly the wind has consumed your body and tore your very soul from its frail shell.')
@@ -61,6 +63,7 @@ def CaveOrTown():
     
 #enter the cave method choice    
 def enterCave():
+    choice = ''
     #ask the user if they want to continue onwards or use their light first
     print ('You choose to enter into the dark imposing cave.')
     time.sleep(2)
@@ -72,11 +75,87 @@ def enterCave():
     time.sleep(5)
     print ('There is a lighter in your pocket you could use it to light the way but any creatures in the cave. Will become aware of you.')
     time.sleep(5)
-    print ('Continue onwards into the unknown.(1)')
-    time.sleep(2)
-    print ('Use your lighter to take stock of the situation.(2)')
-    time.sleep(2)
-    print ('Decide...')       
+    
+    #If the user does not enter 1 or 2 continue to loop
+    while choice != '1' and choice != '2':
+        print ('Continue onwards into the unknown.(1)')
+        time.sleep(2)
+        print ('Use your lighter to take stock of the situation.(2)')
+        time.sleep(2)
+        print ('Decide...')  
+        choice = raw_input
+        
+    #if you choose to continue into the cave run the continue into the cave method
+    if choice == '1':
+        continueIntoCave()
+    #if you choose to turn on the lighter run the turn on lighter method
+    elif choice == '2':
+        turnOnLighter()
+
+#continue into the cave choice
+def continueIntoCave():
+    choice = ''
+    print ('You continue into the murky darkness pushing through the heavy thickness around you.')
+    time.sleep(5)
+    print ('You are not sure how long it has been as the weight around you seems to warp all your senses.')
+    time.sleep(5)
+    print ('As time passes the darkness seems to tighten around you.  It is subtle but your muscless begin to scream and your bones weep from the pressure.')
+    time.sleep(5)
+    print ('You panic but salvation is near there is a light near you that seems to have the shadows shirk away from the in fear.')
+    time.sleep(5)
+    print ('You realize that the darkness seems to be in pain from the light.')
+    time.sleep(3)
+    print ('Your mind comes up with two options to counter the darkness')
+    time.sleep(3)
+    
+    #If the user does not enter 1 or 2 continue to loop
+    while choice != '1' and choice != '2':
+        print ('Reach for your lighter to protect yourself (1)')
+        time.sleep(2)
+        print ('Pursue the light at the end of the tunnel (2)')
+        time.sleep(2)
+        print ('The darkness is not patient Decide...')
+        choice = raw_input
+        
+    #if you choose to reach for your lighter run the reachForLighter method
+    if choice == '1':
+        reachForLighter()
+    #if you choose to head into the light run the intoTheLight method
+    elif choice == '2':
+        intoTheLight()
+    
+#reach for lighter method choice
+def reachForLighter():
+    #bad end you have died
+    print ('You desperately reach for your lighter but it is too late.')
+    time.sleep(5)
+    print ('The darkness crushes your bones and your fluids leaks from multiple punctures.')
+    time.sleep(5)
+    print ('Even in death the darkness still crushes you.')
+    time.sleep(5)
+    print ('In a bestial roar of triumph the darkness disintegrates bones and flesh from your body')
+    time.sleep(5)
+    print ('With another grunt even your escaped fluids are pulverised by the intense pressure.')
+    time.sleep(5)
+    print ('There is not even a piece to bury.')
+    #run the game over method
+    gameOver()
+    
+#intoTheLight method choice
+def intoTheLight():
+    #bad end you have died
+    print ('You find renewed strength to rush to the light but it does not matter....')
+    time.sleep(5)
+    print ('As you near the light you fall')
+    time.sleep(3)
+    print ('Unfortunately in a vertical descent the thickness of the darkness is equivalent into slamming into concrete repeatedly')
+    time.sleep(5)
+    print ('You do not even live to see the light to see the light at the bottom as your crumpled body slams into the glowing floor below.')
+    #run the game over method
+    gameOver()
+    
+#turn on the lighter method choice             
+#def turnOnLighter():
 
 #enter the town method choice
 def runToTown():
@@ -90,7 +169,21 @@ def runToTown():
     time.sleep(5)
     print ('You slam the door and slowly back away as a capachony of screams moan and rage as if they are cursing your survival.')
     time.sleep(5)
-    print ('Slowly')
+    print ('You breathe deeply as the howls of the storm slowly decrease before they vanish from your hearing.')
+    time.sleep(5)
+    print ('As you look around the house has a foreboding taint to it as if it tempting you to action.')
+    time.sleep(5)
+    print ('You feel as if you will fracture as your body and mind conflict with each other.')
+    time.sleep(5)
+    print ('Your mind screams at you to explore this feeling, that it will provide you with answers.')
+    time.sleep(5)
+    print ('Your body moans as your blood shivers and your bones scream at you, a primal fear wells up inside to flee.')
+    time.sleep(5)
+    print ('Explore the house (1)')
+    time.sleep(2)
+    print ('Leave the town now(2)')
+    time.sleep(2)
+    print ('Hurry...')
 
 #gameOver method
 def gameOver():
